@@ -41,7 +41,7 @@ export default {
   name: 'App',
   data () {
     return {
-      api_key: '9853688d2bd7538ea0c5d34777380790',
+      api_key: process.env.VUE_APP_API_KEY,
       url_base : 'https://api.openweathermap.org/data/2.5/',
       query:'',
       weather: {}
@@ -170,9 +170,9 @@ export default {
 
   .weather-box .temp {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 30px 25px;
     color: #FFF;
-    font-size: 102px;
+    font-size: 50px;
     font-weight: 900;
 
     text-shadow: 3px 6px rgba(0,0,0,0.25);
