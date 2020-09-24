@@ -15,6 +15,11 @@
          />
        </div>
 
+        <div class="weather-wrap" v-if="typeof weather.main == 'undefined'">
+          <span id="logo-thunder">
+          <i class="fas fa-bolt"></i>
+          </span>
+        </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
 
@@ -77,9 +82,18 @@
               <div class="icon" > SUNSET {{new Date(weather.sys.sunset*1000).toLocaleTimeString("en-GB").slice(0,5)}} </div>
            </div>
            <div class="info-box">
-              <div class="icon"> HUMIDITY {{weather.main.humidity}} % </div>
+              <div class="icon" id="icon-hum"> HUMIDITY {{weather.main.humidity}} % </div>
             <div class="icon"> WIND SPEED {{weather.wind.speed}} m/s</div>
            </div>
+          </div>
+
+          <div class="social" v-if="typeof weather.main != 'undefined'">
+            <span class="logo-social">
+            <i class="fab fa-instagram"></i>
+            </span>
+          <span class="logo-social">
+            <a href="https://www.linkedin.com/in/chloe-gimenes/"><i class="fab fa-linkedin"></i></a>
+           </span>
           </div>
          
     </main>
@@ -135,12 +149,7 @@ export default {
    getDay() {
      let day = day
    }
-
-  
  },
-
-
-
 }
 
 </script>
@@ -275,6 +284,7 @@ export default {
   }
 
 .date {
+    text-transform: uppercase;
     align-self: center;
     color: rgb(205, 219, 0);
     font-size: 22px;
@@ -318,6 +328,31 @@ export default {
     writing-mode: vertical-rl;
   }
 
+/* FOOTER //////////*/
+.social{
+ display: flex;
+ margin-top: 4%;
+}
+.logo-social {
+  font-size: 3em; 
+  color: Yellow;
+  margin-left: 2%;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+   outline: none;
+   -webkit-tap-highlight-color: transparent;
+}
+
+#logo-thunder {
+font-size: 8em; 
+color: Yellow; 
+margin: auto; 
+margin-top: 8%;
+}
+
 /* MOBILE /////////////////////////////////////*/
 @media  (max-width: 850px) {
   
@@ -336,6 +371,7 @@ export default {
     .weather-box .temp {
     font-size: 110px;
     margin: inherit;
+     margin-bottom: 5%;
     }
     #pic{
     justify-content: center;
@@ -363,7 +399,8 @@ export default {
     justify-content: left;
     width: fit-content;
     max-width: min-content;
-    text-align: left;;
+    text-align: left;
+     margin-bottom: 5%;
    }
    .icon {
      margin-top: 10px;
@@ -381,6 +418,25 @@ export default {
    .info-box {
      margin-left: 15px;
    }
+   #icon-hum {
+     margin-bottom: 5%;
+   }
+
+   #logo-thunder {
+    font-size: 6em; 
+    color: Yellow; 
+    margin: auto; 
+    margin-top: 30%;
+    }
+    .social{
+      justify-content: space-evenly;
+    }
+    .logo-social {
+    font-size: 3em; 
+    color: Yellow;
+    margin-top: 30%;
+    
+}
  }
 
 /* TABLET //////////////////////////////////*/
