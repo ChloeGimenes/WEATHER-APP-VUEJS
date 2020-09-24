@@ -12,7 +12,6 @@
         placeholder="weather forecast for..."
         v-model="query"
         @keypress="fetchWeather"
-        onfocus="blur();"
          />
        </div>
 
