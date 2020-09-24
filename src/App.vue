@@ -96,9 +96,7 @@ export default {
       api_key: process.env.VUE_APP_API_KEY,
       url_base : 'https://api.openweathermap.org/data/2.5/',
       query:'',
-      weather: {},
-     
-     
+      weather: {},     
   }
  },
  methods: {
@@ -123,15 +121,20 @@ export default {
      let months = [
        "January", "February", "March", "April", "May", "June", "July", "August", "Septembre", "Octobre", "November", "December"
      ];
-     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    //  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
    
-    let day = days[d.getDay()];
+    // let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day}` + Array(10).fill('\xa0').join('') + ` ${date}` + Array(10).fill('\xa0').join('') + `${month}` + Array(10).fill('\xa0').join('') + `${year}`;
+    return  ` ${date}` + Array(10).fill('\n').join('') + `${month}` + Array(10).fill('\n').join('') + `${year}`;
+       
    },
+
+   getDay() {
+     let day = day
+   }
 
   
  },
@@ -228,7 +231,6 @@ export default {
     min-height: 100vh;
     padding: 25px;
     background-color: rgb(26, 26, 27);
-    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.75)); */
     }
 
   .search-box {
@@ -238,16 +240,16 @@ export default {
 
   .search-box .search-bar {
     font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
     color: white;
     display: block;
     width: 30%;
     padding: 15px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     margin: auto;
     margin-top: 4%;
     margin-bottom: 6%;
-    
     appearance: none;
     border: none;
     outline: none;
@@ -256,10 +258,6 @@ export default {
     border: 0;
     outline: 0;
     border-bottom: 2px solid rgb(253, 253, 253);
-
-    /* box-shadow: 0px 0px 8px rgba(0,0,0,0.25); */
-    /* background-color:  rgba(255, 255, 255, 0.5); */
-    border-radius: 0px 16 0px 16px;
     transition: 0.4s;
   }
 
@@ -268,6 +266,7 @@ export default {
   }
   
   .location-box .location {
+    text-transform: uppercase;
     color: rgb(245, 245, 245);
     font-size: 65px;
     font-weight: 700;
@@ -279,14 +278,13 @@ export default {
     align-self: center;
     color: rgb(205, 219, 0);
     font-size: 22px;
-    writing-mode: vertical-rl;
   }
 
   .weather-wrap {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
-    margin-top: 15px;
+    margin-top: 35px;
   }
   
   .weather-box {
@@ -326,7 +324,7 @@ export default {
       margin-top: 15%;
       width: 90%;
       text-align: center;
-     font-size: 15px;
+     font-size: 20px;
     }
     .weather-wrap {
     display: flex;
@@ -349,31 +347,35 @@ export default {
     align-self: center;
     color: rgb(205, 219, 0);
     font-size: 14px;
-    writing-mode: inherit;
-    margin-top: 10px;
+    margin-top: 5%;
     margin-bottom: 20px;
    }
+
    #right-box-second-flex{
     width: 300px;
    }
    .location-box .location {
-    font-size: 20px;
+    font-size: 27px;
     text-transform: uppercase;
     line-height: 38px;
     justify-content: left;
     width: fit-content;
+    margin-top: 10%;
+   max-width: min-content;
+    text-align: left;;
    }
-
-
    .icon {
-     margin-top: 15px;
-     margin-bottom: 25px;;
+     margin-top: 10px;
+     margin-bottom: 35px;
    }
    #left-box {
-    margin-bottom: 17px;
+    margin-bottom: 12%;
+     margin-top: 20%;
+
    }
    #info {
      font-size: 13px;
+     margin-top: 13%;
    }
    .info-box {
      margin-left: 15px;
