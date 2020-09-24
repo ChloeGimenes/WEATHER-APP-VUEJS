@@ -3,30 +3,25 @@
     'warm' : '' && weather.weather[0].main == 'rain' ?
     'rain' : ''" >
     <main>
-   
       <div class="search-box">
         <input 
-        spellcheck="false"
-        type ="text"
-        class="search-bar"
-        placeholder="weather forecast for..."
-        v-model="query"
-        @keypress="fetchWeather"
+          spellcheck="false"
+          type ="text"
+          class="search-bar"
+          placeholder="weather forecast for..."
+          v-model="query"
+          @keypress="fetchWeather"
          />
        </div>
-
         <div class="weather-wrap" v-if="typeof weather.main == 'undefined'">
           <span id="logo-thunder">
           <i class="fas fa-bolt"></i>
           </span>
         </div>
-
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
-
-        <div class="date">
-           {{ dateBuilder()}}
-        </div>
-
+          <div class="date">
+            {{ dateBuilder()}}
+          </div>
         <div id="right-box-second-flex">
          <div class="location-box">
           <div class="location">
@@ -39,9 +34,8 @@
           </div>
         </div>
       </div>  
-         
          <div id="left-box">
-             <div id="description">  {{weather.weather[0].description}}</div>
+            <div id="description">  {{weather.weather[0].description}}</div>
               <div 
               id="pic"
               :class="typeof weather.main != 'undefined' && weather.weather[0].icon === '03d'|| weather.weather[0].icon === '03n'?
@@ -65,13 +59,7 @@
           >
           </div>
         </div>
-        
-<!-- 
-          <div class="weather">
-            icone: {{weather.weather[0].icon}}
-          </div> -->
         </div>
-
            <div id="info"  v-if="typeof weather.main != 'undefined'">
             <div class="info-box">
               <div class="icon">MIN {{Math.round(weather.main.temp_min)}}° </div>
@@ -82,11 +70,10 @@
               <div class="icon" > SUNSET {{new Date(weather.sys.sunset*1000).toLocaleTimeString("en-GB").slice(0,5)}} </div>
            </div>
            <div class="info-box">
-              <div class="icon" id="icon-hum"> HUMIDITY {{weather.main.humidity}} % </div>
+              <div class="icon"> HUMIDITY {{weather.main.humidity}} % </div>
             <div class="icon"> WIND SPEED {{weather.wind.speed}} m/s</div>
            </div>
           </div>
-
           <div class="social" v-if="typeof weather.main != 'undefined'">
             <span class="logo-social">
             <i class="fab fa-instagram"></i>
@@ -95,14 +82,11 @@
             <a href="https://www.linkedin.com/in/chloe-gimenes/"><i class="fab fa-linkedin"></i></a>
            </span>
           </div>
-         
     </main>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: 'App',
   data () {
@@ -114,7 +98,6 @@ export default {
   }
  },
  methods: {
-
    fetchWeather (e) {
      if (e.key == "Enter") {
        fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
@@ -136,7 +119,6 @@ export default {
        "January", "February", "March", "April", "May", "June", "July", "August", "Septembre", "Octobre", "November", "December"
      ];
     //  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-   
     // let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
@@ -145,42 +127,34 @@ export default {
     return  ` ${date}` + Array(10).fill('\xa0').join('') + `${month}` + Array(10).fill('\xa0').join('') + `${year}`;
        
    },
-
    getDay() {
      let day = day
    }
  },
 }
-
 </script>
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   }
-
   body {
     /* font-family: 'montserrat', sans-serif; */
     font-family: 'Poppins', sans-serif;
     color: white;
-
   }
-
   #left-box {
     display: flex;
     flex-direction: row;
     align-content: center;
   }
-
   #right-box {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-
   #right-box-second-flex {
   display: flex;
     flex-direction: column;
@@ -195,8 +169,7 @@ export default {
     transition: 0.4s;
     }
   
-
-/* PICTURES ///////////*/  
+/* PICTURES //////////////////////////////////////////////////*/  
   #pic {
      width: 400px;
     height: 400px;
@@ -204,7 +177,6 @@ export default {
     filter: grayscale(100%);
     background-size:cover;
   }
-  
   .rain {
     background-image: url('./assets/lightrain.png');  
   }
@@ -234,7 +206,7 @@ export default {
     background-image: url('./assets/shower-rain.png');
  } 
 
-/* OTHERS /////////////*/
+/* OTHERS /////////////////////////////////////////////////*/
 
   main {
     min-height: 100vh;
@@ -319,16 +291,17 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 3%;
-    
   }
-
+  .icon {
+    width: max-content;
+  }
   #description {
     font-size: 35px;
     margin-right: 10px;
     writing-mode: vertical-rl;
   }
 
-/* FOOTER //////////*/
+/* FOOTER ///////////////////////////////////////////////*/
 .social{
  display: flex;
  margin-top: 4%;
@@ -353,7 +326,7 @@ margin: auto;
 margin-top: 8%;
 }
 
-/* MOBILE /////////////////////////////////////*/
+/* MOBILE ///////////////////////////////////////////////*/
 @media  (max-width: 850px) {
   
     .search-box .search-bar {
@@ -413,15 +386,11 @@ margin-top: 8%;
    }
    #info {
      font-size: 13px;
-     margin-top: 13%;
+     margin-top: 22%;
    }
    .info-box {
      margin-left: 15px;
    }
-   #icon-hum {
-     margin-bottom: 5%;
-   }
-
    #logo-thunder {
     font-size: 6em; 
     color: Yellow; 
