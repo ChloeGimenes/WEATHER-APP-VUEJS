@@ -128,7 +128,7 @@ export default {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return  ` ${date}` + Array(10).fill('\n').join('') + `${month}` + Array(10).fill('\n').join('') + `${year}`;
+    return  ` ${date}` + Array(10).fill('\xa0').join('') + `${month}` + Array(10).fill('\xa0').join('') + `${year}`;
        
    },
 
@@ -278,6 +278,7 @@ export default {
     align-self: center;
     color: rgb(205, 219, 0);
     font-size: 22px;
+    writing-mode: vertical-rl;
   }
 
   .weather-wrap {
@@ -344,13 +345,14 @@ export default {
     object-fit: cover;
    }
    .date {
-    align-self: center;
+    align-self: stretch;
     color: rgb(205, 219, 0);
     font-size: 14px;
-    margin-top: 5%;
-    margin-bottom: 20px;
-   }
+    margin-top: 23%;
+    writing-mode: inherit;
 
+   }
+   
    #right-box-second-flex{
     width: 300px;
    }
@@ -360,8 +362,7 @@ export default {
     line-height: 38px;
     justify-content: left;
     width: fit-content;
-    margin-top: 10%;
-   max-width: min-content;
+    max-width: min-content;
     text-align: left;;
    }
    .icon {
