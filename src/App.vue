@@ -100,7 +100,7 @@
           </div>
           <div class="social" v-if="typeof weather.main != 'undefined'">
             <span class="logo-social">
-            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/chloegdev/"><i class="fab fa-instagram"></i></a>
             </span>
           <span class="logo-social">
             <a href="https://www.linkedin.com/in/chloe-gimenes/"><i class="fab fa-linkedin"></i></a>
@@ -425,8 +425,7 @@ a, a:hover, a:focus, a:active {
     }
     .weather-box .temp {
     font-size: 110px;
-    margin: inherit;
-     margin-bottom: 5%;
+
     }
     #pic{
     justify-content: center;
@@ -464,15 +463,14 @@ a, a:hover, a:focus, a:active {
      margin-bottom: 35px;
    }
    #left-box {
-    margin-bottom: 12%;
+    margin-bottom: 20%;
      margin-top: 20%;
     align-self: center;
    }
    #info {
      flex-direction: column;
      align-items: flex-end;
-     font-size: 13px;
-     margin-top: 10%;
+     font-size: 20px;
    }
    .info-box {
      margin-left: 15px;
