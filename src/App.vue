@@ -3,6 +3,11 @@
     'warm' : '' && weather.weather[0].main == 'rain' ?
     'rain' : ''" >
     <main>
+       <div id="header-thunder" v-if="typeof weather.main != 'undefined'">
+          <span v-on:click="resetResult()" id="logo-thunder-results">
+          <i class="fas fa-bolt"></i>
+          </span>
+        </div>
       <div class="search-box">
         <input 
           spellcheck="false"
@@ -82,6 +87,11 @@
             <a href="https://www.linkedin.com/in/chloe-gimenes/"><i class="fab fa-linkedin"></i></a>
            </span>
           </div>
+          
+            <div id="copyright" v-if="typeof weather.main != 'undefined'">
+              Copyright &#9400; 2020 Chloé Gimenes. All Rights Reserved
+              </div>
+          
     </main>
   </div>
 </template>
@@ -111,6 +121,11 @@ export default {
    setResults (results) {
      this.weather = results;
      console.log(results)
+   },
+
+   resetResult() {
+     this.weather='';
+     this.query='';
    },
 
    dateBuilder () {
@@ -156,7 +171,7 @@ export default {
     align-items: center;
   }
   #right-box-second-flex {
-  display: flex;
+    display: flex;
     flex-direction: column;
     width: 750px;;
 
@@ -206,13 +221,33 @@ export default {
     background-image: url('./assets/shower-rain.png');
  } 
 
-/* OTHERS /////////////////////////////////////////////////*/
+/* HEAD /////////////////////////////////////////////////*/
 
   main {
     min-height: 100vh;
     padding: 25px;
     background-color: rgb(26, 26, 27);
     }
+
+  #logo-thunder {
+    font-size: 8em; 
+    color: Yellow; 
+    margin: auto; 
+    margin-top: 8%;
+    }
+
+  #header-thunder {
+    display: flex;
+    justify-content: center;
+    }
+
+ #logo-thunder-results {
+    font-size: 2em; 
+    color: Yellow; 
+    margin: auto; 
+    margin-top: 1%;
+    cursor: pointer;
+  }
 
   .search-box {
     width: 100%;
@@ -229,8 +264,8 @@ export default {
     text-align: center;
     font-size: 25px;
     margin: auto;
-    margin-top: 4%;
-    margin-bottom: 6%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     appearance: none;
     border: none;
     outline: none;
@@ -246,6 +281,7 @@ export default {
     border-bottom: 2px solid rgb(205, 219, 0);
   }
   
+  /* BODY ///////////////////////////////////////*/
   .location-box .location {
     text-transform: uppercase;
     color: rgb(245, 245, 245);
@@ -255,7 +291,7 @@ export default {
     /* text-shadow: 1px 3px rgba(0,0,0,0.25); */
   }
 
-.date {
+  .date {
     text-transform: uppercase;
     align-self: center;
     color: rgb(205, 219, 0);
@@ -292,26 +328,27 @@ export default {
     justify-content: space-evenly;
     margin-top: 3%;
   }
+
   .icon {
     width: max-content;
   }
+
   #description {
     font-size: 35px;
     margin-right: 10px;
     writing-mode: vertical-rl;
   }
 
-/* FOOTER ///////////////////////////////////////////////*/
+/* FOOTER ////////////////////////////////////*/
 .social{
  display: flex;
- margin-top: 4%;
+ margin-top: 3%;
 }
 .logo-social {
-  font-size: 3em; 
+  font-size: 2.5em; 
   color: Yellow;
   margin-left: 2%;
 }
-
 a, a:hover, a:focus, a:active {
   text-decoration: none;
   color: inherit;
@@ -319,12 +356,13 @@ a, a:hover, a:focus, a:active {
    -webkit-tap-highlight-color: transparent;
 }
 
-#logo-thunder {
-font-size: 8em; 
-color: Yellow; 
-margin: auto; 
-margin-top: 8%;
+#copyright {
+  text-align: left;
+  font-size: 9px;
+  margin-left: 2%;
+  margin-top: 1%;
 }
+
 
 /* MOBILE ///////////////////////////////////////////////*/
 @media  (max-width: 850px) {
@@ -382,9 +420,10 @@ margin-top: 8%;
    #left-box {
     margin-bottom: 12%;
      margin-top: 20%;
-
    }
    #info {
+     flex-direction: column
+     ;
      font-size: 13px;
      margin-top: 22%;
    }
@@ -397,14 +436,19 @@ margin-top: 8%;
     margin: auto; 
     margin-top: 30%;
     }
+ 
     .social{
       justify-content: space-evenly;
     }
     .logo-social {
-    font-size: 3em; 
+    font-size: 2.5em; 
     color: Yellow;
     margin-top: 30%;
-    
+    }
+
+    #copyright {
+    text-align: center;
+    font-size: 8px;
 }
  }
 
