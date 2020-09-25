@@ -131,7 +131,7 @@ export default {
    dateBuilder () {
      let d = new Date ();
      let months = [
-       "January", "February", "March", "April", "May", "June", "July", "August", "Septembre", "Octobre", "November", "December"
+       "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
      ];
     //  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     // let day = days[d.getDay()];
@@ -139,7 +139,7 @@ export default {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return  ` ${date}` + Array(10).fill('\xa0').join('') + `${month}` + Array(10).fill('\xa0').join('') + `${year}`;
+    return  `${month}`+ Array(10).fill('\xa0').join('') + `${date}`  + Array(10).fill('\xa0').join('') + `${year}`;
        
    },
    getDay() {
@@ -173,8 +173,8 @@ export default {
   #right-box-second-flex {
     display: flex;
     flex-direction: column;
-    width: 750px;;
-
+    width: 750px;
+    height: 470px;
   }
 
   #app {
@@ -265,7 +265,7 @@ export default {
     font-size: 25px;
     margin: auto;
     margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     appearance: none;
     border: none;
     outline: none;
@@ -294,7 +294,7 @@ export default {
   .date {
     text-transform: uppercase;
     align-self: center;
-    color: rgb(205, 219, 0);
+    color:yellow;
     font-size: 22px;
     writing-mode: vertical-rl;
   }
@@ -326,7 +326,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 3%;
+    margin-top: 2%;
   }
 
   .icon {
@@ -360,7 +360,6 @@ a, a:hover, a:focus, a:active {
   text-align: left;
   font-size: 9px;
   margin-left: 2%;
-  margin-top: 1%;
 }
 
 
@@ -393,7 +392,7 @@ a, a:hover, a:focus, a:active {
    }
    .date {
     align-self: stretch;
-    color: rgb(205, 219, 0);
+    color: yellow;
     font-size: 14px;
     margin-top: 23%;
     writing-mode: inherit;
@@ -402,6 +401,7 @@ a, a:hover, a:focus, a:active {
    
    #right-box-second-flex{
     width: 300px;
+    height: 200px;
    }
    .location-box .location {
     font-size: 27px;
@@ -425,7 +425,7 @@ a, a:hover, a:focus, a:active {
      flex-direction: column
      ;
      font-size: 13px;
-     margin-top: 22%;
+     margin-top: 10%;
    }
    .info-box {
      margin-left: 15px;
@@ -449,6 +449,7 @@ a, a:hover, a:focus, a:active {
     #copyright {
     text-align: center;
     font-size: 8px;
+    margin-top: 8%;
 }
  }
 
