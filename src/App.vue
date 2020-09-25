@@ -65,7 +65,22 @@
           </div>
         </div>
         </div>
-           <div id="info"  v-if="typeof weather.main != 'undefined'">
+         <div class="container">
+                <div class="scrolling">
+                  {{weather.name}}-
+                </div><div class="scrolling" >
+                  {{weather.name}}-
+                </div><div class="scrolling" >
+                  {{weather.name}}-
+                </div><div class="scrolling" >
+                  {{weather.name}}-
+                 </div><div class="scrolling" >
+                  {{weather.name}}-
+                 </div><div class="scrolling" >
+                  {{weather.name}}-
+                </div>
+              </div>
+           <div id="info"  v-if="typeof weather.main != 'undefined'">            
             <div class="info-box">
               <div class="icon">MIN {{Math.round(weather.main.temp_min)}}° </div>
               <div class="icon">MAX {{Math.round(weather.main.temp_max)}}° </div> 
@@ -339,6 +354,31 @@ export default {
     writing-mode: vertical-rl;
   }
 
+  /* MARQUEE ////////////////////////////////////////*/
+
+ .container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling {
+  animation: marquee 6s linear infinite;
+  display: inline-block;
+  padding-right: 10px;
+  color: yellow;
+  font-size: 100px;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to { 
+    transform: translateX(-100%);
+  }
+}
+
 /* FOOTER ////////////////////////////////////*/
 .social{
  display: flex;
@@ -364,7 +404,7 @@ a, a:hover, a:focus, a:active {
 
 
 /* MOBILE ///////////////////////////////////////////////*/
-@media  (max-width: 850px) {
+@media  (max-width: 480px) {
   
     .search-box .search-bar {
       margin-top: 15%;
@@ -389,6 +429,7 @@ a, a:hover, a:focus, a:active {
     max-width: 200px;
     max-height: 200px;
     object-fit: cover;
+  
    }
    .date {
     align-self: stretch;
@@ -420,11 +461,109 @@ a, a:hover, a:focus, a:active {
    #left-box {
     margin-bottom: 12%;
      margin-top: 20%;
+    align-self: center;
    }
    #info {
-     flex-direction: column
-     ;
+     flex-direction: column;
+     align-items: flex-end;
      font-size: 13px;
+     margin-top: 10%;
+   }
+   .info-box {
+     margin-left: 15px;
+     text-align: -webkit-right;
+   }
+   #logo-thunder {
+    font-size: 6em; 
+    color: Yellow; 
+    margin: auto; 
+    margin-top: 30%;
+    }
+ 
+    .social{
+      justify-content: space-evenly;
+    }
+    .logo-social {
+    font-size: 2.5em; 
+    color: Yellow;
+    margin-top: 30%;
+    }
+
+    #copyright {
+    text-align: center;
+    font-size: 8px;
+    margin-top: 8%;
+}
+ }
+
+
+
+
+
+ @media screen and (min-width: 480px)and (max-width: 850px) {
+
+  .search-box .search-bar {
+    margin-top: 15%;
+    margin-left: 10;
+    width: 90%;
+    text-align: center;
+    font-size: 28px;
+    }
+    .weather-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    }
+    .weather-box .temp {
+    font-size: 110px;
+    margin: inherit;
+     margin-bottom: 5%;
+     margin-top:10%;
+     margin-left: 30%;
+    }
+    #pic{
+    justify-content: center;
+    align-content: inherit;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+   }
+   .date {
+    align-self: stretch;
+    color: yellow;
+    font-size: 16px;
+    margin-top: 10%;
+    writing-mode: inherit;
+
+   }
+   
+   #right-box-second-flex{
+    width: 300px;
+    height: 200px;
+   }
+   .location-box .location {
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 38px;
+    justify-content: left;
+    width: fit-content;
+    max-width: min-content;
+    text-align: left;
+     margin-bottom: 5%;
+   }
+   .icon {
+     margin-top: 10px;
+     margin-bottom: 35px;
+   }
+   #left-box {
+    margin-bottom: 12%;
+     margin-top: 20%;
+     align-self: center;
+   }
+   #info {
+     flex-direction: row;
+     font-size: 15px;
      margin-top: 10%;
    }
    .info-box {
@@ -451,6 +590,7 @@ a, a:hover, a:focus, a:active {
     font-size: 8px;
     margin-top: 8%;
 }
+
  }
 
 /* TABLET //////////////////////////////////*/
