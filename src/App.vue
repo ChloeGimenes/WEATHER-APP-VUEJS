@@ -65,7 +65,7 @@
           </div>
         </div>
         </div>
-         <div class="container">
+         <div class="container" v-if="typeof weather.main != 'undefined'">
                 <div class="scrolling">
                   {{weather.name}}-
                 </div><div class="scrolling" >
@@ -77,6 +77,10 @@
                  </div><div class="scrolling" >
                   {{weather.name}}-
                  </div><div class="scrolling" >
+                  {{weather.name}}-
+                </div><div class="scrolling" >
+                  {{weather.name}}-
+                </div><div class="scrolling" >
                   {{weather.name}}-
                 </div>
               </div>
@@ -280,7 +284,7 @@ export default {
     font-size: 25px;
     margin: auto;
     margin-top: 2%;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
     appearance: none;
     border: none;
     outline: none;
@@ -341,7 +345,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 2%;
+    margin-top: 1%;
   }
 
   .icon {
@@ -359,6 +363,7 @@ export default {
  .container {
   overflow: hidden;
   white-space: nowrap;
+  margin-top: -40px;
 }
 
 .scrolling {
