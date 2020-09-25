@@ -438,8 +438,9 @@ a, a:hover, a:focus, a:active {
    .date {
     align-self: stretch;
     color: yellow;
-    font-size: 14px;
-    margin-top: 23%;
+    font-size: 18px;
+    margin-top: 15%;
+    margin-bottom: 5%;
     writing-mode: inherit;
 
    }
@@ -449,18 +450,18 @@ a, a:hover, a:focus, a:active {
     height: 200px;
    }
    .location-box .location {
-    font-size: 27px;
+    font-size: 35px;
     text-transform: uppercase;
     line-height: 38px;
     justify-content: left;
     width: fit-content;
     max-width: min-content;
     text-align: left;
-     margin-bottom: 5%;
+    margin-bottom: 15%;
    }
    .icon {
      margin-top: 10px;
-     margin-bottom: 35px;
+     margin-bottom: 10px;
    }
    #left-box {
     margin-bottom: 20%;
