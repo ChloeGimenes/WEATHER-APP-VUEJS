@@ -17,9 +17,7 @@
           v-model="query"
           @keypress="fetchWeather"
          />
-         <button class="button-search" v-on:click="fetchWeather()" v-if="typeof weather.main == 'undefined'">
-           GO
-         </button>
+       
        </div>
         <div class="weather-wrap" v-if="typeof weather.main == 'undefined'">
           <span id="logo-thunder">
