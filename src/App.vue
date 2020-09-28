@@ -13,10 +13,13 @@
           spellcheck="false"
           type ="text"
           class="search-bar"
-          placeholder="weather forecast for..."
+          placeholder="Enter a city..."
           v-model="query"
           @keypress="fetchWeather"
          />
+         <button class="button-search" v-on:click="fetchWeather()" v-if="typeof weather.main == 'undefined'">
+           GO
+         </button>
        </div>
         <div class="weather-wrap" v-if="typeof weather.main == 'undefined'">
           <span id="logo-thunder">
@@ -67,21 +70,21 @@
         </div>
          <div class="container" v-if="typeof weather.main != 'undefined'">
                 <div class="scrolling">
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                  </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                  </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div><div class="scrolling" >
-                  {{weather.name}}-
+                  {{weather.name}}&nbsp;-
                 </div>
               </div>
            <div id="info"  v-if="typeof weather.main != 'undefined'">            
@@ -470,12 +473,11 @@ a, a:hover, a:focus, a:active {
    }
    #info {
      flex-direction: column;
-     align-items: flex-end;
      font-size: 20px;
    }
    .info-box {
      margin-left: 15px;
-     text-align: -webkit-right;
+     justify-content:  right;
    }
    #logo-thunder {
     font-size: 6em; 
