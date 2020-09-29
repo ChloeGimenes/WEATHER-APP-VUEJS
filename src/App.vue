@@ -17,7 +17,6 @@
           v-model="query"
           @keypress="fetchWeather"
          />
-       
        </div>
         <div class="weather-wrap" v-if="typeof weather.main == 'undefined'">
           <span id="logo-thunder">
@@ -43,6 +42,7 @@
          <div id="left-box">
             <div id="description">  {{weather.weather[0].description}}</div>
               <div 
+              loading="lazy"
               id="pic"
               :class="typeof weather.main != 'undefined' && weather.weather[0].icon === '03d'|| weather.weather[0].icon === '03n'?
           'clouds' : '' || 
