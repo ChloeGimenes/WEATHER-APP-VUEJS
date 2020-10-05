@@ -101,7 +101,7 @@
           </div>
           <div class="social" v-if="typeof weather.main != 'undefined'">
             <span class="logo-social">
-            <a href="https://www.instagram.com/chloegdev/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/chloeg.dev/?hl=en"><i class="fab fa-instagram"></i></a>
             </span>
           <span class="logo-social">
             <a href="https://www.linkedin.com/in/chloe-gimenes/"><i class="fab fa-linkedin"></i></a>
